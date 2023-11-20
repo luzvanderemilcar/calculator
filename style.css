@@ -26,7 +26,7 @@ body {
   }
 
   #display {
-    font-size: 1.75em;
+    font-size: 2.5em;
     min-height : 80px;
     height : 55%;
     display : flex;
@@ -75,7 +75,7 @@ body {
 .operator {
   grid-area  : operator;
   display : grid;
-  grid-gap : 5px;
+  grid-gap : 2.5px;
   padding : auto;
 }
 
@@ -106,7 +106,6 @@ body {
   display : grid;
   grid-gap : 10px;
   grid-template-columns : 40% 60%;
-  width : 95%;
 }
 
 .result div {
@@ -118,7 +117,9 @@ body {
   }
 
 footer {
+  position: absolute;
+  bottom: 5%;
+  left : 40%;
+  text-align: center;
   opacity: 50%;
-  margin: 2% auto auto;
-  padding-top: 7%;
 }
