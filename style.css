@@ -1,125 +1,154 @@
-body {
-  margin-top: 10%;
-  text-align : center;
-  background-color : #F1F3F4;
+html {
+    margin: 0;
+    padding: 0;
 }
-.container {
-    width: 100%;
-  }
+
+body {
+    text-align: center;
+    background-color: #F1F3F4;
+}
 
 #calculator-display {
-    width: 100%;
+    position: fixed;
+    width: 100vw;
+    height: 100vh
+}
+
+#react-body {
+    width: 90%;
+    height: 95%;
     max-width: 450px;
+    max-height: 700px;
+    min-width: 150px;
+    min-height: 200px;
+    padding-inline: 5%;
+    display: grid;
+    grid-template-rows: 25% 55%;
+    align-items: end;
+    justify-items: center;
+    grid-gap: 20%
 }
 
- #screen {
-   padding: 2% 5%;
-   text-align : right !important;
-   min-height: 120px;
-  }
-  
-  #sup-display {
+#screen {
+    height: 95%;
+    width: 95%;
+    text-align: right !important;
+    min-height: 120px;
+    display: grid;
+    grid-template-rows: 30% 1.5% 66%;
+    align-items: end;
+    padding: 2.5%
+}
+
+#sup-display {
+    padding-inline: 5%;
     font-size: 1.5em;
-    min-height : 40px;
-    height : 40%;
-    margin : 5% auto;
-  }
-
-  #display {
-    font-size: 2.5em;
-    min-height : 80px;
-    height : 55%;
-    display : flex;
-    justify-content : flex-end;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
-  #display span {
-    align-self : flex-end;
-  }
+#display {
+    padding-inline: 10%;
+    font-size: 2.5em;
+    height: 100%;
+    width: 80%;
+    min-height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: #FFFFFF
+}
 
 .touch-pad {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 75% 25%;
-  grid-template-rows: 80% 20% ; 
-  grid-template-areas : 
-    "digit operator"
-    "result operator";
-  padding:15% 5%;
-  min-width: 200px;
-  border-bottom-left-radius :10px;
-  border-bottom-right-radius: 10px;
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: 75% 20%;
+    grid-template-rows: 72.5% 17.5%;
+    grid-template-areas:
+        "digit operator"
+        "result operator";
+    align-self: center;
+    width: 95%;
+    height: 80%;
+    padding-bottom: 15%;
+    min-width: 150px;
+    min-height: 150px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-  
+
 .digit {
-  grid-area : digit;
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: 2fr 2fr 2fr;
-  grid-template-rows : 5fr 5fr 5fr 5fr;
-  padding: 5%;
-  padding-bottom : auto;
+    grid-area: digit;
+    display: grid;
+    column-gap: 5%;
+    row-gap: 5%;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: repeat(4, 20%);
+    padding-bottom: auto;
 }
 
 .digit div {
-  height: 50px;
-  width: 50px;
-  border-radius : 10px;
-  background-color : #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
+    min-height: 2em;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .operator {
-  grid-area  : operator;
-  display : grid;
-  grid-gap : 2.5px;
-  padding : auto;
+    grid-area: operator;
+    display: grid;
+    grid-gap: 2.5px;
+    padding: auto;
 }
 
 .operator div {
-  font-size: 1.25em;
-  border-radius : 10px;
-  color: #FFFFFF;
-  background-color : #4C5EF7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
+    font-size: 1.25em;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background-color: #4C5EF7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 #clear {
-  color : red;
-  background-color : #92939C;
-  font-weight: bold;
+    color: red;
+    background-color: #96979F;
+    font-weight: bold;
 }
-  
-#calculate {
-  color: ghostwhite;
-  background-color: darkblue;
-  font-weight: bold;
+
+#equals {
+    font-size: 2.5em;
+    color: #FFFFFF;
+    background-color: #4C5EF7;
+    font-weight: bold;
 }
 
 .result {
-  grid-area : result ;
-  display : grid;
-  grid-gap : 10px;
-  grid-template-columns : 40% 60%;
+    grid-area: result;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 40% 60%;
 }
 
 .result div {
-  border-radius : 10px;
-  background-color : #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 footer {
-  position: absolute;
-  bottom: 5%;
-  left : 40%;
-  text-align: center;
-  opacity: 50%;
+    position: absolute;
+    bottom: 3.5%;
+    left: 25%;
+    opacity: 50%;
 }

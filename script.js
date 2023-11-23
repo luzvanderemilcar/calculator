@@ -1,10 +1,9 @@
 import React from "https://cdn.skypack.dev/react@17.0.1";
 import ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
 
-
 //Regex to test the input
 const operatorRegex = /[\-+×÷]/g;
-const numberRegex= /[0-9]/g;
+const numberRegex = /[0-9]/g;
 
 
 //Setting calculator function 
@@ -46,7 +45,7 @@ class Calculator extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            input: "0",
+            input: '',
             resultNum: '',
             calculResult: false
         };
@@ -56,7 +55,6 @@ class Calculator extends React.Component {
         this.calculate = this.calculate.bind(this);
 
     }
-
     componentDidMount() {
 
         $(".digit div, .operator div").on("click", this.inputChange);
@@ -69,42 +67,34 @@ class Calculator extends React.Component {
         let data = $(e.target).html();
 
         this.setState(state => {
-            
-            //control number of zero before decimal point
-            if (operatorRegex.test(state.input[state.input.length - 1]) && operatorRegex.test(data)) {
-                if (data != "-") {
-                    return {
-                        input: state.input.slice(0, inputTextLength - 1) + data
-                    }
-                }
-            }
-           else if (state.input == "0") {
-                if (data == "." || operatorRegex.test(data)) {
+            if (state.input == "0") {
+                if (data != "0" && data == ".") {
                     return {
                         input: state.input + data,
                         resultNum: ''
                     };
-                }
-                else if (numberRegex.test(data)) {
+
+                } else
+                if (numberRegex.test(data)) {
                     return {
                         input: data,
                         resultNum: ''
                     };
 
                 }
-            }
-        
-            else if (state.input != "0") {
-                // allow only one decimal point for a number
+            } else
+
+            if (state.input != "0") {
+
                 if (data == "." && !haveDecimalPoint(state.input)) {
                     return {
                         input: state.input + data,
                         resultNum: ''
                     };
 
-                }
-            
-                else if (numberRegex.test(data) || operatorRegex.test(data)) {
+                } else
+
+                if (numberRegex.test(data) || operatorRegex.test(data)) {
                     return {
                         input: state.input + data,
                         resultNum: ''
@@ -181,9 +171,9 @@ class Screen extends React.Component {
         return /*#__PURE__*/ (
             React.createElement("div", { id: "screen" }, /*#__PURE__*/
                 React.createElement("div", { id: "sup-display" }, this.props.resultNum), /*#__PURE__*/
-                React.createElement("hr", null), /*#__PURE__*/
-                React.createElement("div", { id: "display" }, /*#__PURE__*/
-                    React.createElement("span", null, this.props.screenInput))));
+                React.createElement("div", { id: "screen-separator" }),
+                /*#__PURE__*/
+                React.createElement("div", { id: "display" }, this.props.screenInput)));
 
 
 
